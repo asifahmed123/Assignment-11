@@ -1,23 +1,50 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
 const Home = () => {
+     const [toys, setToys] = useState([]);
+     // console.log(toys);
+
+     const handleCategory = (event) => {
+          console.log(event.target.innerText);
+          const category = event.target.innerText;
+          fetch(`http://localhost:5000/toys?category=${category}`, {
+               method: 'GET',
+               headers: {
+                    'content-type': 'application/json'
+               }
+          })
+               .then(res => res.json())
+               .then(data => {
+                    setToys(data);
+               })
+     }
      return (
           <div>
 
                <Tabs>
-                    <TabList>
-                         <Tab><span className='text-2xl'>Trucks</span></Tab>
-                         <Tab>Title 2</Tab>
+                    <TabList onClick={handleCategory}>
+                         <Tab><span className='text-2xl font-semibold text-fuchsia-500'>Trucks</span></Tab>
+                         <Tab><span className='text-2xl font-semibold text-fuchsia-500'>Sports Cars</span></Tab>
+                         <Tab><span className='text-2xl font-semibold text-fuchsia-500'>Sedans</span></Tab>
                     </TabList>
 
                     <TabPanel>
-                         <h2>Any content 1</h2>
+                         <div>
+                              <h2>Toys coming here: {toys.length}</h2>
+                              {
+                                   toys.map(toy => <p key={toy._id}>{toy.name}</p>)
+                              }
+                         </div>
+
                     </TabPanel>
                     <TabPanel>
-                         <h2>Any content 2</h2>
+                         <h2>Toys coming here: {toys.length}</h2>
+                    </TabPanel>
+                    <TabPanel>
+                         <h2>Toys coming here: {toys.length}</h2>
                     </TabPanel>
                </Tabs>
 
