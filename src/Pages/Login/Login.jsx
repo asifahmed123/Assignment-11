@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
-     const {logInUser} = useContext(AuthContext);
+     const {logInUser, googleLogIn} = useContext(AuthContext);
      const [error, setError] = useState('');
 
      const handleLogin = (event) => {
@@ -26,7 +26,13 @@ const Login = () => {
      }
 
      const handleGoogleSignIn = () => {
-
+          googleLogIn()
+          .then(result => {
+               console.log(result.user);
+          })
+          .catch(error => {
+               console.log(error.message);
+          })
      }
      return (
           <div className='lg:flex justify-center items-center mb-10 mt-20'>
