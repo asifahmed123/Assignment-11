@@ -1,12 +1,17 @@
 import { Button, Label, TextInput } from 'flowbite-react';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => {
-     const {registerUser, updateUser} = useContext(AuthContext);
+     const { registerUser, updateUser } = useContext(AuthContext);
+     const [error, setError] = useState('');
+     const [success, setSuccess] = useState('');
 
      const handleRegister = (event) => {
+          setError('');
+          setSuccess('');
           event.preventDefault();
           const form = event.target;
           const name = form.name.value;
@@ -15,14 +20,28 @@ const Register = () => {
           const password = form.password.value;
           console.log(name, photo, password, email);
 
+          if (password.length < 6) {
+               setError('Password should be at least 6 character')
+               return
+          }
+
           registerUser(email, password)
-          .then(result => {
-               console.log(result.user);
-               updateUser(name, photo)
-          })
-          .catch(error => {
-               console.log(error.message);
-          })
+               .then(result => {
+                    console.log(result.user);
+                    updateUser(name, photo)
+                    setSuccess('Registration successful')
+                    Swal.fire({
+                         position: 'middle',
+                         icon: 'success',
+                         title: 'Registration successful',
+                         showConfirmButton: true,
+                       })
+                    
+                    form.reset();
+               })
+               .catch(error => {
+                    console.log(error.message);
+               })
      }
 
      return (
@@ -86,12 +105,12 @@ const Register = () => {
                          />
                     </div>
                     <Button type="submit">
-                         <Link to='/login' >
+                         <Link>
                               Register
                          </Link>
                     </Button>
-                    {/* <p className='text-red-500'>{error}</p> */}
-                    {/* <p className='text-green-500'>{success}</p> */}
+                    <p className='text-red-500'>{error}</p>
+                    <p className='text-green-500'>{success}</p>
                     <p>Already have an account? please <Link className='text-blue-500' to='/login'>Login</Link></p>
                </form>
                <div className='w-[100%] lg:w-[50%] mt-20'>
