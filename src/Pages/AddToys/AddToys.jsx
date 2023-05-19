@@ -19,7 +19,7 @@ const AddToys = () => {
           const description = form.description.value;
 
           const user = {
-               photo: photo,
+               picture: photo,
                name: name,
                sellerName: sellerName,
                sellerEmail: sellerEmail,

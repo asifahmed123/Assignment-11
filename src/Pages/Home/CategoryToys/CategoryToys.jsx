@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const CategoryToys = ({ toy }) => {
      const { user } = useContext(AuthContext);
      const { name, price, ratings, picture, description } = toy;
+     console.log(toy);
      const navigate = useNavigate();
 
      const handleViewDetails = () => {
@@ -19,11 +20,11 @@ const CategoryToys = ({ toy }) => {
 
      return (
           <div className="max-w-sm">
-               <Card imgSrc="https://flowbite.com/docs/images/blog/image-1.jpg">
+               <Card imgSrc={picture}>
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                          {name}
                     </h5>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">
+                    <p className="font-normal overflow-hidden text-gray-700 dark:text-gray-400">
                          {description}
                     </p>
                     <p>Price: ${price}</p>
