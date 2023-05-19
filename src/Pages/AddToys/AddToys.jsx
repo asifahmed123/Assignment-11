@@ -1,7 +1,9 @@
 import { Button, Label, TextInput, Textarea } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const AddToys = () => {
+     const {user} = useContext(AuthContext);
 
      const handleAddToy = event => {
           event.preventDefault();
@@ -99,7 +101,7 @@ const AddToys = () => {
                               id="sellerEmail"
                               type="text"
                               name="sellerEmail"
-                              defaultValue={'hfnwiufh.com'}
+                              defaultValue={user?.email}
                               required={true}
                          />
                     </div>
