@@ -1,9 +1,185 @@
+import { Button, Label, TextInput, Textarea } from 'flowbite-react';
 import React from 'react';
 
 const AddToys = () => {
+
+     const handleAddToy = event => {
+          event.preventDefault();
+          const form = event.target;
+          const photo = form.photo.value;
+          const name = form.name.value;
+          const sellerName = form.sellerName.value;
+          const sellerEmail = form.sellerEmail.value;
+          const category = form.category.value;
+          const price = form.price.value;
+          const rating = form.rating.value;
+          const quantity = form.quantity.value;
+          const description = form.description.value;
+
+          const user = {
+               photo: photo,
+               name: name,
+               sellerName: sellerName,
+               sellerEmail: sellerEmail,
+               category: category,
+               price: price,
+               rating: rating,
+               quantity: quantity,
+               description: description
+          }
+
+          fetch('http://localhost:5000/users', {
+               method: 'POST',
+               headers: {
+                    'content-type': 'application/json'
+               },
+               body: JSON.stringify(user)
+          })
+               .then(res => res.json())
+               .then(data => {
+                    console.log(data);
+                    if (data.insertedId > 0) {
+                         alert('added toy successful')
+                    }
+               })
+     }
      return (
           <div>
-               <h2>Add toys here</h2>
+               <form onSubmit={handleAddToy} className="flex flex-col gap-4">
+                    <div>
+                         <div className="mb-2 block">
+                              <Label
+                                   htmlFor="photo URL"
+                                   value="Photo URL"
+                              />
+                         </div>
+                         <TextInput
+                              id="photo"
+                              type="text"
+                              name="photo"
+                              required={true}
+                         />
+                    </div>
+                    <div>
+                         <div className="mb-2 block">
+                              <Label
+                                   htmlFor="name"
+                                   value="Name"
+                              />
+                         </div>
+                         <TextInput
+                              id="name"
+                              type="text"
+                              name="name"
+                              required={true}
+                         />
+                    </div>
+                    <div>
+                         <div className="mb-2 block">
+                              <Label
+                                   htmlFor="sellerName"
+                                   value="Seller Name"
+                              />
+                         </div>
+                         <TextInput
+                              id="sellerName"
+                              type="text"
+                              name="sellerName"
+                              required={true}
+                         />
+                    </div>
+                    <div>
+                         <div className="mb-2 block">
+                              <Label
+                                   htmlFor="sellerEmail"
+                                   value="Seller Email"
+                              />
+                         </div>
+                         <TextInput
+                              id="sellerEmail"
+                              type="text"
+                              name="sellerEmail"
+                              defaultValue={'hfnwiufh.com'}
+                              required={true}
+                         />
+                    </div>
+                    <div>
+                         <div className="mb-2 block">
+                              <Label
+                                   htmlFor="category"
+                                   value="Category"
+                              />
+                         </div>
+                         <TextInput
+                              id="category"
+                              type="text"
+                              name="category"
+                              placeholder="Example: Trucks"
+                              required={true}
+                         />
+                    </div>
+                    <div>
+                         <div className="mb-2 block">
+                              <Label
+                                   htmlFor="price"
+                                   value="Price"
+                              />
+                         </div>
+                         <TextInput
+                              id="price"
+                              type="number"
+                              name="price"
+                              required={true}
+                         />
+                    </div>
+                    <div>
+                         <div className="mb-2 block">
+                              <Label
+                                   htmlFor="rating"
+                                   value="Rating"
+                              />
+                         </div>
+                         <TextInput
+                              id="rating"
+                              type="number"
+                              name="rating"
+                              required={true}
+                         />
+                    </div>
+                    <div>
+                         <div className="mb-2 block">
+                              <Label
+                                   htmlFor="available quantity"
+                                   value="Available Quantity"
+                              />
+                         </div>
+                         <TextInput
+                              id="quantity"
+                              type="number"
+                              name="quantity"
+                              required={true}
+                         />
+                    </div>
+                    <div id="textarea">
+                         <div className="mb-2 block">
+                              <Label
+                                   htmlFor="Detail description"
+                                   value="Detail Description"
+                              />
+                         </div>
+                         <Textarea
+                              id="description"
+                              placeholder="Toy Description"
+                              name="description"
+                              required={true}
+                              rows={4}
+                         />
+                    </div>
+
+                    <Button className='bg-pink-600 py-2 rounded-lg font-semibold text-white hover:bg-pink-800' type="submit">
+                         Add Toy
+                    </Button>
+               </form>
           </div>
      );
 };

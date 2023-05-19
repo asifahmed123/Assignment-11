@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import CategoryToys from '../CategoryToys/CategoryToys';
 
 const Home = () => {
      const [toys, setToys] = useState([]);
@@ -10,7 +11,7 @@ const Home = () => {
      const handleCategory = (event) => {
           console.log(event.target.innerText);
           const category = event.target.innerText;
-          fetch(`http://localhost:5000/toys?category=${category}`, {
+          fetch(`https://toy-haven-server.vercel.app/toys?category=${category}`, {
                method: 'GET',
                headers: {
                     'content-type': 'application/json'
@@ -26,25 +27,40 @@ const Home = () => {
 
                <Tabs>
                     <TabList onClick={handleCategory}>
-                         <Tab><span className='text-2xl font-semibold text-fuchsia-500'>Trucks</span></Tab>
-                         <Tab><span className='text-2xl font-semibold text-fuchsia-500'>Sports Cars</span></Tab>
-                         <Tab><span className='text-2xl font-semibold text-fuchsia-500'>Sedans</span></Tab>
+                         <Tab><span className='text-2xl font-semibold text-fuchsia-600'>Trucks</span></Tab>
+                         <Tab><span className='text-2xl font-semibold text-fuchsia-600'>Sports Cars</span></Tab>
+                         <Tab><span className='text-2xl font-semibold text-fuchsia-600'>Sedans</span></Tab>
                     </TabList>
 
                     <TabPanel>
-                         <div>
-                              <h2>Toys coming here: {toys.length}</h2>
+                         <div className='grid grid-cols-3 gap-2'>
                               {
-                                   toys.map(toy => <p key={toy._id}>{toy.name}</p>)
+                                   toys.map(toy => <CategoryToys
+                                        key={toy._id}
+                                        toy={toy}
+                                   ></CategoryToys>)
                               }
                          </div>
-
                     </TabPanel>
                     <TabPanel>
-                         <h2>Toys coming here: {toys.length}</h2>
+                    <div className='grid grid-cols-3 gap-2'>
+                              {
+                                   toys.map(toy => <CategoryToys
+                                        key={toy._id}
+                                        toy={toy}
+                                   ></CategoryToys>)
+                              }
+                         </div>
                     </TabPanel>
                     <TabPanel>
-                         <h2>Toys coming here: {toys.length}</h2>
+                    <div className='grid grid-cols-3 gap-2'>
+                              {
+                                   toys.map(toy => <CategoryToys
+                                        key={toy._id}
+                                        toy={toy}
+                                   ></CategoryToys>)
+                              }
+                         </div>
                     </TabPanel>
                </Tabs>
 
