@@ -3,12 +3,11 @@ import React, { useContext } from 'react';
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
 import { AuthContext } from '../../../Provider/AuthProvider';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CategoryToys = ({ toy }) => {
      const { user } = useContext(AuthContext);
-     const { name, price, ratings, picture, description } = toy;
-     console.log(toy);
+     const { _id, name, price, ratings, picture, description, sellerEmail, sellerName, quantity } = toy;
      const navigate = useNavigate();
 
      const handleViewDetails = () => {
@@ -20,7 +19,8 @@ const CategoryToys = ({ toy }) => {
 
      return (
           <div className="max-w-sm">
-               <Card imgSrc={picture}>
+               <Card className='bg-stone-50 hover:bg-stone-100 drop-shadow-2xl'>
+                    <img className='h-60 rounded-lg' src={picture} alt="" />
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                          {name}
                     </h5>
@@ -36,7 +36,8 @@ const CategoryToys = ({ toy }) => {
                          />
                          <p>{ratings}</p>
                     </div>
-                    <button onClick={handleViewDetails} className='bg-pink-600 py-2 rounded-lg font-semibold text-white hover:bg-pink-800'>View Details</button>
+                    <Link onClick={handleViewDetails} to={`/viewDetails/${_id}`} className='bg-pink-600 py-2 rounded-lg font-semibold text-center text-white hover:bg-pink-800'>View Details</Link>
+
 
                </Card>
           </div>

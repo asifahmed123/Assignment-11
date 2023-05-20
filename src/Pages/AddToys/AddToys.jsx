@@ -1,6 +1,7 @@
 import { Button, Label, TextInput, Textarea } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddToys = () => {
      const {user} = useContext(AuthContext);
@@ -14,7 +15,7 @@ const AddToys = () => {
           const sellerEmail = form.sellerEmail.value;
           const category = form.category.value;
           const price = form.price.value;
-          const rating = form.rating.value;
+          const ratings = form.ratings.value;
           const quantity = form.quantity.value;
           const description = form.description.value;
 
@@ -25,10 +26,16 @@ const AddToys = () => {
                sellerEmail: sellerEmail,
                category: category,
                price: price,
-               rating: rating,
+               ratings: ratings,
                quantity: quantity,
                description: description
           }
+
+          Swal.fire(
+               'Toy added!',
+               'successful!',
+               'success'
+             )
 
           fetch('http://localhost:5000/users', {
                method: 'POST',
@@ -137,14 +144,14 @@ const AddToys = () => {
                     <div>
                          <div className="mb-2 block">
                               <Label
-                                   htmlFor="rating"
-                                   value="Rating"
+                                   htmlFor="ratings"
+                                   value="Ratings"
                               />
                          </div>
                          <TextInput
-                              id="rating"
+                              id="ratings"
                               type="number"
-                              name="rating"
+                              name="ratings"
                               required={true}
                          />
                     </div>

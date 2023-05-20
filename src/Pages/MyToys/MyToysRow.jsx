@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MyToysRow = ({ toy, handleDelete }) => {
-     const { _id, name, category, description, picture, price, quantity, rating, sellerEmail, sellerName } = toy;
+     const { _id, name, category, description, picture, price, quantity, ratings, sellerEmail, sellerName } = toy;
 
      return (
           <tr>
@@ -22,7 +22,7 @@ const MyToysRow = ({ toy, handleDelete }) => {
                <td>{category}</td>
                <td>{price}</td>
                <td>{quantity}</td>
-               <td>{rating}</td>
+               <td>{ratings}</td>
                <td>{description}</td>
                <td>{sellerName}</td>
                <td>{sellerEmail}</td>
