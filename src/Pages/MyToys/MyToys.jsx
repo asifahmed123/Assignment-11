@@ -6,8 +6,6 @@ const MyToys = () => {
      const { user } = useContext(AuthContext);
      const email = user?.email;
      const [toys, setToys] = useState([])
-     const [updatedToy, setUpdatedToy] = useState({})
-     console.log(updatedToy);
 
      useEffect(() => {
           fetch(`http://localhost:5000/my-toys?sellerEmail=${email}`, {
@@ -36,37 +34,9 @@ const MyToys = () => {
                })
      }
 
-     const handleForm = (event) => {
-          event.preventDefault();
-          const form = event.target;
-          const updatedPrice = form.price.value;
-          const updatedQuantity = form.quantity.value;
-          const updatedDescription = form.description.value;
-
-          const updatedInfo = {
-               price: updatedPrice,
-               quantity: updatedQuantity,
-               description: updatedDescription
-          }
-          setUpdatedToy(updatedInfo);
-     }
-
-     const handleUpdate = id => {
-          fetch(`http://localhost:5000/toys/${id}`, {
-               method: 'PATCH',
-               headers: {
-                    'content-type' : 'application/json'
-               },
-               body: JSON.stringify(updatedToy)
-          })
-          .then(res => res.json())
-          .then(data => {
-               console.log(data);
-          })
-     }
-
+    
      return (
-          <div className="overflow-x-auto w-full">
+          <div className="overflow-x-auto w-full mt-24">
                <table className="table w-full">
                     {/* head */}
                     <thead>
@@ -82,6 +52,7 @@ const MyToys = () => {
                               <th>price</th>
                               <th>quantity</th>
                               <th>rating</th>
+                              <th>description</th>
                               <th>seller-Name</th>
                               <th>seller-Email</th>
                               <th>status</th>
@@ -93,8 +64,6 @@ const MyToys = () => {
                                    key={toy._id}
                                    toy={toy}
                                    handleDelete={handleDelete}
-                                   handleForm={handleForm}
-                                   handleUpdate={handleUpdate}
                               ></MyToysRow>)
                          }
                     </tbody>

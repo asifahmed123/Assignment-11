@@ -1,4 +1,4 @@
-import { Button, Card, Modal } from 'flowbite-react';
+import { Card } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
