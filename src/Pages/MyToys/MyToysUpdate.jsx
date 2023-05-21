@@ -61,6 +61,7 @@ const MyToysUpdate = () => {
           <div className="hero min-h-screen bg-base-200">
                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
+                         <h2 className='text-center text-3xl font-bold'>Update Your Toy</h2>
                          <form onSubmit={handleForm}>
                               <div className="form-control">
                                    <label className="label">
