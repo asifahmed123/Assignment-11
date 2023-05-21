@@ -153,19 +153,35 @@ const AddToys = () => {
                               required={true}
                          />
                     </div>
-                    <div>
+                    
+                    <div id="ratings">
                          <div className="mb-2 block">
                               <Label
                                    htmlFor="ratings"
-                                   value="Ratings"
+                                   value="ratings"
                               />
                          </div>
-                         <TextInput
+                         <Select
                               id="ratings"
-                              type="number"
                               name="ratings"
                               required={true}
-                         />
+                         >
+                              <option>
+                                   1
+                              </option>
+                              <option>
+                                   2
+                              </option>
+                              <option>
+                                   3
+                              </option>
+                              <option>
+                                   4
+                              </option>
+                              <option>
+                                   5
+                              </option>
+                         </Select>
                     </div>
                     <div>
                          <div className="mb-2 block">
