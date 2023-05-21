@@ -160,27 +160,25 @@ const Home = () => {
                     </div>
                </div>
 
-               <div className='lg:flex bg-amber-100 mt-20 p-10'>
-                    <div className="w-3/4">
-                         <div className="flex-col items-center justify-center text-center">
-                              <p><FaRegClock className="text-6xl"></FaRegClock></p>
-                              <h2>Fast Delivery</h2>
-                              <p>Find tracking information and order details from Your Orders.</p>
-                         </div>
+               <div className='lg:flex bg-amber-100 mt-20 py-20 px-10'>
+                    <div className="lg:w-1/4 lg:mr-4 mb-6">
+                         <p><FaRegClock className="text-6xl"></FaRegClock></p>
+                         <h2 className="text-2xl font-bold text-green-500 mt-5 mb-2">Fast Delivery</h2>
+                         <p>Find tracking information and order details from Your Orders.</p>
                     </div>
-                    <div className="w-3/4">
+                    <div className="lg:w-1/4 lg:mr-4 mb-6">
                          <FaKey className="text-6xl"></FaKey>
-                         <h2>Save Money</h2>
+                         <h2 className="text-2xl font-bold text-green-500 mt-5 mb-2">Save Money</h2>
                          <p>Save $5 every year compared to the monthly plan by paying yearly.</p>
                     </div>
-                    <div className="w-3/4">
+                    <div className="lg:w-1/4 lg:mr-4 mb-6">
                          <FaRocket className="text-6xl"></FaRocket>
-                         <h2>Fast Returns</h2>
+                         <h2 className="text-2xl font-bold text-green-500 mt-5 mb-2">Fast Returns</h2>
                          <p>Money back. If the item didn’t suit you</p>
                     </div>
-                    <div className="w-3/4">
+                    <div className="lg:w-1/4 lg:mr-4 mb-6">
                          <FaHeadphones className="text-6xl"></FaHeadphones>
-                         <h2>Online Support</h2>
+                         <h2 className="text-2xl font-bold text-green-500 mt-5 mb-2">Online Support</h2>
                          <p>Use our 24/7 customer hotline so you’re not alone if you have a question</p>
                     </div>
                </div>

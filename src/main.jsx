@@ -15,7 +15,7 @@ AOS.init();
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <div className='max-w-7xl mx-auto px-20'>
+  <div className='mx-auto px-5 lg:px-20'>
     <React.StrictMode>
       <HelmetProvider>
         <AuthProvider>

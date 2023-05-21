@@ -1,4 +1,4 @@
-import { Button, Label, TextInput, Textarea } from 'flowbite-react';
+import { Button, Label, Select, TextInput, Textarea } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -116,20 +116,28 @@ const AddToys = () => {
                               required={true}
                          />
                     </div>
-                    <div>
+                    <div id="category">
                          <div className="mb-2 block">
                               <Label
                                    htmlFor="category"
                                    value="Category"
                               />
                          </div>
-                         <TextInput
+                         <Select
                               id="category"
-                              type="text"
                               name="category"
-                              placeholder="Example: Trucks"
                               required={true}
-                         />
+                         >
+                              <option>
+                                   Trucks
+                              </option>
+                              <option>
+                                   Sedans
+                              </option>
+                              <option>
+                                   Sports Cars
+                              </option>
+                         </Select>
                     </div>
                     <div>
                          <div className="mb-2 block">

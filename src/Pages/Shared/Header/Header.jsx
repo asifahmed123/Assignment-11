@@ -25,8 +25,8 @@ const Header = () => {
           >
                <Navbar.Brand href="/">
                     <img
-                         src="https://img.freepik.com/free-vector/font-design-word-toy-shop-with-many-toys_1308-42318.jpg?w=996&t=st=1684407579~exp=1684408179~hmac=3acb65f3d11d7f4ab209d347370931374b7cd6e39270ed9d0bcfa3ec675c4c00"
-                         className="mr-3 h-10 lg:h-20"
+                         src="https://i.ibb.co/3RqcZYY/Blue-and-Yellow-Creative-Minimalist-3-D-Toys-Store-Promotion-Facebook-Post.png"
+                         className="mr-3 h-10 lg:h-20 rounded-full"
                          alt=""
                     />
                     <span className=" lg:text-2xl font-bold dark:text-white">
