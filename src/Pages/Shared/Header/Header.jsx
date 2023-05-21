@@ -12,10 +12,10 @@ const Header = () => {
 
      const handleLogout = () => {
           logOut()
-          .then()
-          .catch(error => {
-               console.log(error.message);
-          })
+               .then()
+               .catch(error => {
+                    console.log(error.message);
+               })
      }
 
      return (
@@ -51,8 +51,8 @@ const Header = () => {
                <Navbar.Collapse>
                     <ActiveLink to='/'>Home</ActiveLink>
                     <ActiveLink to='/alltoys'>All Toys</ActiveLink>
-                    <ActiveLink to='/mytoys'>My Toys</ActiveLink>
-                    <ActiveLink to='/addtoys'>Add a Toy</ActiveLink>
+                    <p onClick={() => !user && alert('Please login to view this page')}><ActiveLink to='/mytoys'>My Toys</ActiveLink></p>
+                    <p onClick={() => !user && alert('Please login to view this page')}><ActiveLink to='/addtoys'>Add a Toy</ActiveLink></p>
                     <ActiveLink to='/blog'>Blog</ActiveLink>
                </Navbar.Collapse>
           </Navbar>

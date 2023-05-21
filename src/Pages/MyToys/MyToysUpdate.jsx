@@ -31,7 +31,7 @@ const MyToysUpdate = () => {
                confirmButtonText: 'Yes, update!'
           }).then((result) => {
                if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/toys/${_id}`, {
+                    fetch(`https://toy-haven-server.vercel.app/toys/${_id}`, {
                          method: 'PATCH',
                          headers: {
                               'content-type': 'application/json'

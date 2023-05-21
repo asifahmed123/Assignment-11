@@ -4,7 +4,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const AddToys = () => {
-     const {user} = useContext(AuthContext);
+     const { user } = useContext(AuthContext);
 
      const handleAddToy = event => {
           event.preventDefault();
@@ -35,9 +35,9 @@ const AddToys = () => {
                'Toy added!',
                'successful!',
                'success'
-             )
+          )
 
-          fetch('http://localhost:5000/users', {
+          fetch('https://toy-haven-server.vercel.app/users', {
                method: 'POST',
                headers: {
                     'content-type': 'application/json'
