@@ -58,7 +58,7 @@ const AddToys = () => {
                <Helmet>
                     <title>Toy_Haven | Add Toy</title>
                </Helmet>
-               <form onSubmit={handleAddToy} className="flex flex-col gap-4">
+               <form onSubmit={handleAddToy} className="flex flex-col gap-4 mt-20">
                     <div>
                          <div className="mb-2 block">
                               <Label
