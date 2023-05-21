@@ -46,6 +46,7 @@ const Home = () => {
                <Banner></Banner>
 
                <div className='mt-20'>
+                    <h2 className="lg:text-5xl font-bold text-center">Toy Categories</h2>
                     <Tabs>
                          <TabList onClick={handleCategory}>
                               <Tab><span className='text-2xl font-semibold text-red-400'>Trucks</span></Tab>
