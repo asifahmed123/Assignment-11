@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import MyToysRow from './MyToysRow';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const MyToys = () => {
      const { user } = useContext(AuthContext);
@@ -59,7 +60,9 @@ const MyToys = () => {
 
      return (
           <div className="overflow-x-auto w-full mt-24">
-
+               <Helmet>
+                    <title>Toy_Haven | My Toys</title>
+               </Helmet>
                <div className="dropdown dropdown-right mb-14">
                     <label tabIndex={0} className="btn m-1">Sort By</label>
                     <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">

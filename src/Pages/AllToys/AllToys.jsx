@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import AllToysRow from './AllToysRow';
+import { Helmet } from 'react-helmet-async';
 
 const AllToys = () => {
      const toys = useLoaderData();
@@ -8,7 +9,9 @@ const AllToys = () => {
      console.log(search);
      return (
           <div className="overflow-x-auto mt-20">
-
+               <Helmet>
+                    <title>Toy_Haven | All Toys</title>
+               </Helmet>
                <div className="form-control mb-6">
                     <div className="input-group">
                          <input onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Search…" className="input input-bordered" />

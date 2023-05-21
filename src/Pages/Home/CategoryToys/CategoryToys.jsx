@@ -18,8 +18,8 @@ const CategoryToys = ({ toy }) => {
      }
 
      return (
-          <div className="max-w-sm">
-               <Card className='bg-stone-50 hover:bg-stone-100 drop-shadow-2xl'>
+          <div className="">
+               <Card data-aos="zoom-in-down" className='bg-stone-50 hover:bg-stone-100 drop-shadow-2xl h-full'>
                     <img className='h-60 rounded-lg' src={picture} alt="" />
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                          {name}

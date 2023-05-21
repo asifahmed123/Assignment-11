@@ -2,6 +2,7 @@ import { Button, Label, TextInput, Textarea } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const AddToys = () => {
      const { user } = useContext(AuthContext);
@@ -54,6 +55,9 @@ const AddToys = () => {
      }
      return (
           <div>
+               <Helmet>
+                    <title>Toy_Haven | Add Toy</title>
+               </Helmet>
                <form onSubmit={handleAddToy} className="flex flex-col gap-4">
                     <div>
                          <div className="mb-2 block">

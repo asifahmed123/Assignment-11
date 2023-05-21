@@ -30,7 +30,7 @@ const Header = () => {
                          alt=""
                     />
                     <span className="self-center whitespace-nowrap text-2xl font-bold dark:text-white">
-                         Toy Shop
+                         Toy Haven
                     </span>
                </Navbar.Brand>
                <div className="flex md:order-2">
