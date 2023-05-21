@@ -43,7 +43,9 @@ const Home = () => {
                     <title>Toy_Haven | Home</title>
                </Helmet>
 
-               <Banner></Banner>
+               <div className="mt-20">
+                    <Banner></Banner>
+               </div>
 
                <div className='mt-20'>
                     <h2 className="lg:text-5xl font-bold text-center">Toy Categories</h2>
